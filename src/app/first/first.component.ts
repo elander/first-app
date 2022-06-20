@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Book } from '../models';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-first',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./first.component.css']
 })
 export class FirstComponent implements OnInit {
+  // @Input() bookList: Book[] = [];
   title = 'My First Component!';
   isVisible = false;
   personList = ['Max', 'Anders', 'Can', 'Edgars', 'Toms', 'Julia'];
-  
+  bookList: Book[] = [];
+
+
   onClick() {
     console.log('I was clicked!');
     this.isVisible = !this.isVisible;
@@ -17,9 +23,10 @@ export class FirstComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private externalService: BookService ) { }
 
   ngOnInit(): void {
+    this.bookList = this.externalService.getBookList();
   }
 
 }
