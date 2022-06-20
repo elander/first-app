@@ -15,5 +15,12 @@ export class BookService {
     return this.favBooks;
   }
 
+  createBook(bookTitle: string): void {
+    if(bookTitle.length !== 0) {
+      const bookObject: Book = {title: bookTitle};
+      this.favBooks.push(bookObject);
+    }
+  }
+
   constructor() { }
 }

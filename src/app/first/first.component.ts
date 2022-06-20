@@ -25,6 +25,10 @@ export class FirstComponent implements OnInit {
 
   constructor(private externalService: BookService ) { }
 
+  addBook(bookTitle: string) {
+    this.externalService.createBook(bookTitle);
+  }
+
   ngOnInit(): void {
     this.bookList = this.externalService.getBookList();
   }

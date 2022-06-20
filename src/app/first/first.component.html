@@ -5,5 +5,8 @@
 <div *ngFor="let book of bookList">
     {{book.title}}
 </div>
+<app-input (newBookEvent)="addBook($event)"></app-input>
+
+
 
 <button (click)="onClick()">Click me!</button>
