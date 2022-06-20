@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+
+<p *ngIf="isVisible">first works!</p>
+
+<div *ngFor="let person of personList">
+    {{person}}
+</div>
+
+<button (click)="onClick()">Click me!</button>
